@@ -19,34 +19,51 @@ const GraphicView = ({data}:Props)=>{
         console.log(windowSize)
         let widthResize: string = "600px";
         let heightResize: string = "400px";
-
+        let chartCount = Object.keys(data).length
         if(windowSize.width < 1000){
             console.log('tablet o celular');
         }else if(windowSize.width >= 1000 && windowSize.width <= 2400){
             console.log('tamaño PC');
-            if(data.length === 1){
+            if(chartCount === 1){
                 widthResize = "100%";
                 heightResize = "100%";
                 
-            }else if(data.length <= 6){
-                widthResize = `${windowSize.width / data.length}px`
-                heightResize = `100%`
-            }else if(data.length > 6 && data.length <= 12){
-                //let div = windowSize.width / 6;
-                widthResize = `${240/*6 charts per row*/}px`
+            }else if(chartCount <= 6){
+                widthResize = `${windowSize.width / chartCount}px`;
+                heightResize = `100%`;
+            }else if(chartCount > 6 && chartCount <= 12){
+                let div = windowSize.width / 6;
+                widthResize = `${div}px`;
                 heightResize = `${(windowSize.height / 2) - 50 /*50px = Header height buttons, 2 = number of rows*/}px`
             }else{
-                widthResize = `${windowSize.width / data.length}px`
-                heightResize = `${(windowSize.height / 2) - 50 /*50px = Header height buttons*/}px`
+                widthResize = `260px`
+                heightResize = '200px'//`${(windowSize.height / 2) - 50 /*50px = Header height buttons*/}px`
             }
+
         }else if(windowSize.width > 2400){
-            console.log('TV')
+            if(chartCount === 1){
+                widthResize = "100%";
+                heightResize = "100%";
+                
+            }else if(chartCount <= 6){
+                widthResize = `${windowSize.width / chartCount}px`;
+                heightResize = `100%`;
+            }else if(chartCount > 6 && chartCount <= 12){
+                let div = windowSize.width / 6;
+                widthResize = `${div}px`;
+                heightResize = `${(windowSize.height / 2) - 50 /*50px = Header height buttons, 2 = number of rows*/}px`
+            }else{
+                widthResize = `260px`
+                heightResize = '200px'//`${(windowSize.height / 2) - 50 /*50px = Header height buttons*/}px`
+            }
+
         }
+
         setResize({
             width: widthResize,
             height: heightResize
         })
-    },[windowSize])
+    },[data, windowSize])
 
     
     console.log(data)
