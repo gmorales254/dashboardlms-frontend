@@ -4,7 +4,7 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import MonitorIcon from '@mui/icons-material/Monitor';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import LightModeIcon from '@mui/icons-material/LightMode';
+//import LightModeIcon from '@mui/icons-material/LightMode';
 import GraphicView from '../GraphicView/GraphicView';
 import LinearProgress from "@mui/material/LinearProgress/LinearProgress";
 import './Main.scss';

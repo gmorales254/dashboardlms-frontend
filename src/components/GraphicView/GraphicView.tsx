@@ -24,7 +24,7 @@ const GraphicView = ({data}:Props)=>{
             console.log('tablet o celular');
         }else if(windowSize.width >= 1000 && windowSize.width <= 2400){
             console.log('tamaño PC');
-            if(data.length == 1){
+            if(data.length === 1){
                 widthResize = "100%";
                 heightResize = "100%";
                 
@@ -32,7 +32,7 @@ const GraphicView = ({data}:Props)=>{
                 widthResize = `${windowSize.width / data.length}px`
                 heightResize = `100%`
             }else if(data.length > 6 && data.length <= 12){
-                let div = windowSize.width / 6;
+                //let div = windowSize.width / 6;
                 widthResize = `${240/*6 charts per row*/}px`
                 heightResize = `${(windowSize.height / 2) - 50 /*50px = Header height buttons, 2 = number of rows*/}px`
             }else{
@@ -42,9 +42,6 @@ const GraphicView = ({data}:Props)=>{
         }else if(windowSize.width > 2400){
             console.log('TV')
         }
-        console.log(windowSize.width / 6)
-        console.log(widthResize)
-        console.log(heightResize)
         setResize({
             width: widthResize,
             height: heightResize

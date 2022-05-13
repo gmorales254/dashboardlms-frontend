@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import "./Graphic.scss";
 import {
     Chart as ChartJS,
@@ -26,11 +26,6 @@ import {
     title: string,
     size: object
   }
-
-  interface Size{
-    width: string,
-    height: string
-  }
   
   const Graphic = ({labels, datasets, title, size}:Propies) => {
 
@@ -40,18 +35,20 @@ import {
       scaleOverride:false,
       scaleSteps:9,
       maintainAspectRatio: false,
+      backgroundColor: "#B4D455",
+      color: "#B4D455",
       plugins: {
         legend: {
           position: 'top' as const,
           display: true,
           labels: {
-            color: "#f0f8ff"
+            color: "#B4D455"
           }
         },
         title: {
           display: false,
           text: title,
-          color: "#f0f8ff"
+          color: "#B4D455"
         },
           subtitle: {
               display: true,
